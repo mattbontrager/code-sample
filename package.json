@@ -1,0 +1,70 @@
+{
+  "name": "code-sample",
+  "version": "1.0.0",
+  "description": "A code sample to share with others.",
+  "main": "app.js",
+  "scripts": {
+    "test": "eslint src test"
+  },
+  "author": "Matt Bontrager <matt.bontrager@icloud.com>",
+  "license": "ISC",
+  "engines": {
+	  "node": "v11.2.0"
+  },
+  "eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true,
+			"es6": true,
+			"mocha": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 8,
+			"sourceType": "module"
+		},
+		"rules": {
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"linebreak-style": [
+				"error",
+				"unix"
+			],
+			"quotes": [
+				"error",
+				"single",
+				{
+					"avoidEscape": true,
+					"allowTemplateLiterals": true
+				}
+			],
+			"semi": [
+				"error",
+				"always"
+			],
+			"one-var": [
+				"error",
+				{
+					"var": "always",
+					"let": "never",
+					"const": "never",
+					"separateRequires": true
+				}
+			],
+			"no-unused-vars": 0,
+			"arrow-parens": [
+				"error",
+				"as-needed"
+			]
+		}
+	},
+  "devDependencies": {
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
+  }
+}
