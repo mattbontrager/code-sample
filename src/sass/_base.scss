@@ -1,0 +1,76 @@
+@import 'compass';
+@import 'compass/functions';
+@import 'compass/reset';
+@import 'compass/css3';
+
+$flexRow: row, wrap;
+$flexRowNoWrap: row, nowrap;
+$flexColumn: column, wrap;
+$flexColumnNoWrap: column, nowrap;
+
+%fb {
+	@include display-flex;
+}
+%row {
+	@extend %fb;
+	@include flex-direction(row);
+}
+
+%column {
+	@extend %fb;
+	@include flex-direction(column);
+}
+
+%nowrap {
+	@include flex-wrap(nowrap);
+}
+
+%vFill {
+	@include align-items(stretch);
+}
+
+@mixin box($direction, $wrap) {
+	@if $direction == row {
+		@extend %row;
+	} @else {
+		@extend %column;
+	}
+	@if $wrap {
+		@include flex-direction($wrap);
+	}
+}
+
+.flex-row {
+	@include box($flexRow...);
+}
+
+.flex-row-no-wrap {
+	@include box($flexRowNoWrap...);
+}
+
+.space-between {
+	@include justify-content(space-between);
+}
+
+.space-around {
+	@include justify-content(space-around);
+}
+
+.flex-column {
+	@include box($flexColumn...);
+}
+
+.flex-column-no-wrap {
+	@include box($flexColumnNoWrap...);
+}
+
+.absolute-center {
+	@include box($flexRow...);
+	@include align-items(center);
+	@include justify-content(center);
+}
+
+.vertical-center {
+	@include box($flexRow...);
+	@include align-items(center);
+}
